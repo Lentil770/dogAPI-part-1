@@ -1,16 +1,16 @@
 
 
 function fetchDogImg() {
-    let numberDogs = $('#dogNumber').input
-    fetch(`https://dog.ceo/api/breeds/image/random/${numberDogs}`)
-    .then(response => response.json)
-    .then(responseJson => console.log(responseJson))
-    .catch(error =>console.log("fetchDogImg failed to run correctly. the error was:", error))
-}
+    let numberDogs = $('#dogNumber').val();
+    fetch('https://dog.ceo/api/breeds/image/random/' + numberDogs)
+        .then(response => response.json())
+        .then(responseJson => console.log(responseJson))
+        .catch(error => alert('failed attempt!'))
+};
 
 
 function watchButton() {
-    $('#submitButton').on('click', function() {
+    $('.dog-img-number').on('submit', function() {
         fetchDogImg();
         console.log('watchButton ran');
     });
@@ -19,4 +19,4 @@ function watchButton() {
 
 $(console.log('page ready and running'),
     watchButton()
-  )
+);
